@@ -1,8 +1,12 @@
 from flask import Flask, render_template
 from flask import url_for
-
+from flask_sqlalchemy import SQLAlchemy
+import os
 #app obj
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:123456@127.0.0.1:3306/flask_sql_demo'
+db=SQLAlchemy(app)
+
 
 name='Xdh'
 movies=[
@@ -13,7 +17,8 @@ movies=[
     {'title': 'Bat Man II', 'year': '2008'},
     {'title': 'Bat Man III', 'year': '2012'},
     {'title': 'TENET', 'year': '2020'},
-    {'title': 'The Prestige', 'year': '2006'}
+    {'title': 'The Prestige', 'year': '2006'},
+    {'title': 'None', 'year': 'None '}
 ]
 
 
@@ -32,7 +37,7 @@ def index():
 # @app.route('/test')
 # def test_url_for():
 #     #url_for通过函数生成url规则
-#     print(url_for('hello'))
+#     print(url_for('hello'))#传入端点值（视图函数的名称）和参数，它会返回对应的 URL。
 #     print(url_for('main'))
 #     print(url_for('user_page',name='peter'))
 
