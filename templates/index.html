@@ -10,7 +10,7 @@
 
 
     <h2><img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
-        {{ name }}'s Watchlist
+        {{ user.name }}'s Watchlist
     </h2>
     <p>{{ movies|length }} Titles</p>{# length过滤器,相当于len #}
     <ul class="movie-list">
